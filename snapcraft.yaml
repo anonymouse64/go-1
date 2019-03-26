@@ -1,5 +1,5 @@
 name: go
-version: 0.1
+version: "0.1"
 summary: the go programming language.
 description: |
   Go is an open source programming language that makes it easy to build simple,
@@ -24,12 +24,15 @@ confinement: strict
 parts:
   go:
     plugin: nil
-    build-packages: [golang-go, g++]
     source: https://go.googlesource.com/go
     source-type: git
-    build: cd src && env GOROOT_BOOTSTRAP=$(go env GOROOT | tr -d '\n') ./make.bash
-    install: cp -R * $SNAPCRAFT_PART_INSTALL
+    source-depth: 1
+    build-packages: [golang-go, g++]
+    override-build: |
+      cd src && env GOROOT_BOOTSTRAP=$(go env GOROOT | tr -d '\n') GO111MODULE=off ./make.bash
+      cd ..
+      cp -R bin $SNAPCRAFT_PART_INSTALL
     stage:
-      - 'bin'
+      - "bin"
     prime:
-      - '-*'
+      - "-*"
