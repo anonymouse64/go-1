@@ -12,13 +12,13 @@ description: |
     from the master branch to compile your program.
     .
     If you want to specify a go version, also add a go part with the version as
-    the source-tag value. For example, to use go 1.7.5, use:
+    the source-tag value. For example, to use go 1.11.6, use:
       parts:
         my-go-program:
           ...
           after: [go]
         go:
-          source-tag: go1.7.5
+          source-tag: go1.11.6
 confinement: strict
 
 parts:
