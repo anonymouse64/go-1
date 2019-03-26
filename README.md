@@ -1,4 +1,5 @@
 # Snapcraft remote part for go
+[![Snap Status](https://build.snapcraft.io/badge/anonymouse64/go-snapcraft-part.svg)](https://build.snapcraft.io/user/anonymouse64/go-snapcraft-part)
 
 A remote snapcraft part to build the go tools
 
